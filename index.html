@@ -1,36 +1,32 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="co">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACH.MA | قريباً</title>
+    <title>ACH - Pinterest Style</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
         }
-        body {
-            background-color: #1a1a24;
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        /* القائمة العلوية */
-        header {
+
+        /* المنيو الفوقاني - Navbar */
+        .navbar {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background-color: #111118;
-            border-bottom: 1px solid #2a2a3a;
+            padding: 12px 20px;
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
             z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
-        .logo {
+
+       .logo {
     font-family: 'Arial Black', sans-serif;
     font-size: 28px;
     font-weight: 900;
@@ -43,118 +39,170 @@
     display: inline-block;
 }
         }
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        nav ul li {
-            margin-right: 20px;
-        }
-        nav ul li a {
-            color: #a0a0b0;
+
+        .nav-btn {
+            background-color: #111111;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 24px;
             text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
+            font-weight: 600;
+            font-size: 15px;
+            margin-right: 10px;
         }
-        nav ul li a:hover {
-            color: #ffcc00;
+
+        .search-container {
+            flex-grow: 1;
+            margin: 0 10px;
         }
-        /* الواجهة الرئيسية */
-        .hero {
-            height: 100vh;
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #efefef;
+            border: none;
+            border-radius: 24px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-bar:focus {
+            background-color: #e1e1e1;
+        }
+
+        .nav-icons {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            background: radial-gradient(circle at center, #252535 0%, #1a1a24 100%);
-            margin-top: 60px;
+            gap: 18px;
+            margin-left: 10px;
         }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-        .hero h1 span {
-            color: #ffcc00;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            color: #a0a0b0;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-        /* الأزرار */
-        .btn-group {
-            display: flex;
-            gap: 15px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 16px;
+
+        .icon-btn {
+            font-size: 18px;
+            color: #111111;
+            text-decoration: none;
+            cursor: pointer;
             font-weight: bold;
-            text-decoration: none;
-            transition: 0.3s ease;
         }
-        .btn-primary {
-            background-color: #ffcc00;
-            color: #111118;
+
+        /* شبكة التصاور - Pinterest Grid */
+        .main-container {
+            margin-top: 85px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
         }
-        .btn-primary:hover {
-            background-color: #e6b800;
-            transform: translateY(-2px);
+
+        .pin-container {
+            column-count: 5;
+            column-gap: 16px;
+            width: 100%;
+            max-width: 1400px;
         }
-        .btn-secondary {
-            border: 2px solid #2a2a3a;
-            color: #ffffff;
+
+        /* تجاوب الشاشات */
+        @media (max-width: 1200px) { .pin-container { column-count: 4; } }
+        @media (max-width: 900px) { .pin-container { column-count: 3; } }
+        @media (max-width: 600px) { .pin-container { column-count: 2; } }
+
+        .pin-card {
+            background-color: white;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            break-inside: avoid;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
         }
-        .btn-secondary:hover {
-            background-color: #2a2a3a;
-            transform: translateY(-2px);
+
+        .pin-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            transition: transform 0.2s ease, filter 0.2s ease;
         }
-        /* أسفل الصفحة */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #111118;
-            color: #606070;
+
+        .pin-card:hover img {
+            filter: brightness(0.85);
+            transform: scale(1.02); /* تحريك خفيف للتصويرة */
+        }
+
+        .pin-info {
+            padding: 8px 6px;
+        }
+
+        .pin-title {
             font-size: 14px;
-            border-top: 1px solid #2a2a3a;
+            font-weight: 600;
+            color: #212121;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     </style>
 </head>
 <body>
 
-    <!-- القائمة العلوية -->
-    <header>
-        <div class="logo">ACH<span>.ma</span></div>
-        <nav>
-            <ul>
-                <li><a href="#">الرئيسية</a></li>
-                <li><a href="#">علينا</a></li>
-                <li><a href="#">الخدمات</a></li>
-                <li><a href="#">اتصل بنا</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- الواجهة الرئيسية -->
-    <section class="hero">
-        <h1>مرحباً بكم في <span>ACH.ma</span></h1>
-        <p>الموقع ديالنا حالياً قيد التطوير والتجهيز. هاد البلاصة مخصصة باش تحط فيها الفكرة والتعريف بالمشروع ديالك مستقبلاً.</p>
-        <div class="btn-group">
-            <a href="#" class="btn btn-primary">اكتشف المزيد</a>
-            <a href="#" class="btn btn-secondary">تواصل معنا</a>
+    <!-- المنيو الفوقاني مع سميتك -->
+    <nav class="navbar">
+        <a href="#" class="logo">ACH</a>
+        <a href="#" class="nav-btn">Home</a>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search on ACH designs...">
         </div>
-    </section>
+        <div class="nav-icons">
+            <a href="#" class="icon-btn">🔔</a>
+            <a href="#" class="icon-btn">💬</a>
+            <a href="#" class="icon-btn">👤 ACH</a>
+        </div>
+    </nav>
 
-    <!-- أسفل الصفحة -->
-    <footer>
-        جميع الحقوق محفوظة © 2026 - Gaaraxthegoatt
-    </footer>
+    <!-- شبكة التصاور والمشاريع الخاصة بـ ACH -->
+    <main class="main-container">
+        <div class="pin-container">
+            
+            <div class="pin-card">
+                <img src="https://picsum.photos/300/400?random=1" alt="ACH Project">
+                <div class="pin-info"><div class="pin-title">ACH Creative Ideas</div></div>
+            </div>
+
+            <div class="pin-card">
+                <img src="https://picsum.photos/300/250?random=2" alt="ACH Project">
+                <div class="pin-info"><div class="pin-title">Minimal Portfolio</div></div>
+            </div>
+
+            <div class="pin-card">
+                <img src="https://picsum.photos/300/500?random=3" alt="ACH Project">
+                <div class="pin-info"><div class="pin-title">ACH Style & Space</div></div>
+            </div>
+
+            <div class="pin-card">
+                <img src="https://picsum.photos/300/300?random=4" alt="ACH Project">
+                <div class="pin-info"><div class="pin-title">New Inspiration</div></div>
+            </div>
+
+            <div class="pin-card">
+                <img src="https://picsum.photos/300/450?random=5" alt="ACH Project">
+                <div class="pin-info"><div class="pin-title">ACH Digital Art</div></div>
+            </div>
+
+            <div class="pin-card">
+                <img src="https://picsum.photos/300/350?random=6" alt="ACH Project">
+                <div class="pin-info"><div class="pin-title">Modern Concepts</div></div>
+            </div>
+
+            <div class="pin-card">
+                <img src="https://picsum.photos/300/550?random=7" alt="ACH Project">
+                <div class="pin-info"><div class="pin-title">ACH Production</div></div>
+            </div>
+
+            <div class="pin-card">
+                <img src="https://picsum.photos/300/280?random=8" alt="ACH Project">
+                <div class="pin-info"><div class="pin-title">Setup Exploration</div></div>
+            </div>
+
+        </div>
+    </main>
 
 </body>
 </html>
