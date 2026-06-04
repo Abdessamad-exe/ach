@@ -26,17 +26,27 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-       .logo {
-    font-family: 'Arial Black', sans-serif;
-    font-size: 28px;
-    font-weight: 900;
-    color: white;
-    background: linear-gradient(135deg, #ff0000, #ff8c00); /* تدرج لوني واعر */
-    padding: 5px 15px;
-    border-radius: 8px; /* حواف مقوسة */
+      .logo {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* الخط اللي كيشبه لستايل SpaceX */
+    font-size: 30px;
+    font-weight: 800; /* خط عريض بزاف */
+    color: #000000;
     text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* ضل باش يبان بارز */
+    letter-spacing: -1px; /* باش الحروف يجيوا مجموعين ومودرن */
     display: inline-block;
+    position: relative;
+}
+
+/* هاد اللمسة كتزيد تأثير السرعة ديال SpaceX */
+.logo::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    margin-top: -5px;
+    border-radius: 2px;
+}
 }
         }
 
