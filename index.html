@@ -1,217 +1,95 @@
 <!DOCTYPE html>
-<html lang="co">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACH - Pinterest Style</title>
+    <title>ACH | Official</title>
     <style>
-        * {
+        /* ستايل SpaceX - نقي، أسود، وأبيض */
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
         }
 
-        /* المنيو الفوقاني - Navbar */
         .navbar {
             display: flex;
             align-items: center;
-            padding: 12px 20px;
-            position: fixed;
+            justify-content: space-between;
+            padding: 30px 50px;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            background-color: white;
+            background: white;
             z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
 
-      .logo {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* الخط اللي كيشبه لستايل SpaceX */
-    font-size: 30px;
-    font-weight: 800; /* خط عريض بزاف */
-    color: #000000;
-    text-decoration: none;
-    letter-spacing: -1px; /* باش الحروف يجيوا مجموعين ومودرن */
-    display: inline-block;
-    position: relative;
-}
-
-/* هاد اللمسة كتزيد تأثير السرعة ديال SpaceX */
-.logo::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 4px;
-    background-color: #000000;
-    margin-top: -5px;
-    border-radius: 2px;
-}
-}
-        }
-
-        .nav-btn {
-            background-color: #111111;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 24px;
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #000000;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            margin-right: 10px;
+            text-transform: uppercase;
         }
 
-        .search-container {
-            flex-grow: 1;
-            margin: 0 10px;
-        }
-
-        .search-bar {
-            width: 100%;
-            padding: 12px 20px;
-            background-color: #efefef;
-            border: none;
-            border-radius: 24px;
-            font-size: 15px;
-            outline: none;
-        }
-
-        .search-bar:focus {
-            background-color: #e1e1e1;
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 18px;
-            margin-left: 10px;
-        }
-
-        .icon-btn {
-            font-size: 18px;
-            color: #111111;
+        .nav-links a {
             text-decoration: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* شبكة التصاور - Pinterest Grid */
-        .main-container {
-            margin-top: 85px;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .pin-container {
-            column-count: 5;
-            column-gap: 16px;
-            width: 100%;
-            max-width: 1400px;
-        }
-
-        /* تجاوب الشاشات */
-        @media (max-width: 1200px) { .pin-container { column-count: 4; } }
-        @media (max-width: 900px) { .pin-container { column-count: 3; } }
-        @media (max-width: 600px) { .pin-container { column-count: 2; } }
-
-        .pin-card {
-            background-color: white;
-            border-radius: 16px;
-            margin-bottom: 16px;
-            break-inside: avoid;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .pin-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 16px;
-            transition: transform 0.2s ease, filter 0.2s ease;
-        }
-
-        .pin-card:hover img {
-            filter: brightness(0.85);
-            transform: scale(1.02); /* تحريك خفيف للتصويرة */
-        }
-
-        .pin-info {
-            padding: 8px 6px;
-        }
-
-        .pin-title {
+            color: #000000;
+            margin-left: 30px;
             font-size: 14px;
-            font-weight: 600;
-            color: #212121;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* التصاور بستايل "SpaceX" */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+            padding: 50px;
+        }
+
+        .card {
+            background-color: #f4f4f4;
+            height: 500px;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            color: black;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background-color: #e0e0e0;
+        }
+
+        .card h2 {
+            font-size: 28px;
+            margin: 0;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
-    <!-- المنيو الفوقاني مع سميتك -->
     <nav class="navbar">
         <a href="#" class="logo">ACH</a>
-        <a href="#" class="nav-btn">Home</a>
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search on ACH designs...">
-        </div>
-        <div class="nav-icons">
-            <a href="#" class="icon-btn">🔔</a>
-            <a href="#" class="icon-btn">💬</a>
-            <a href="#" class="icon-btn">👤 ACH</a>
+        <div class="nav-links">
+            <a href="#">Projects</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
         </div>
     </nav>
 
-    <!-- شبكة التصاور والمشاريع الخاصة بـ ACH -->
-    <main class="main-container">
-        <div class="pin-container">
-            
-            <div class="pin-card">
-                <img src="https://picsum.photos/300/400?random=1" alt="ACH Project">
-                <div class="pin-info"><div class="pin-title">ACH Creative Ideas</div></div>
-            </div>
-
-            <div class="pin-card">
-                <img src="https://picsum.photos/300/250?random=2" alt="ACH Project">
-                <div class="pin-info"><div class="pin-title">Minimal Portfolio</div></div>
-            </div>
-
-            <div class="pin-card">
-                <img src="https://picsum.photos/300/500?random=3" alt="ACH Project">
-                <div class="pin-info"><div class="pin-title">ACH Style & Space</div></div>
-            </div>
-
-            <div class="pin-card">
-                <img src="https://picsum.photos/300/300?random=4" alt="ACH Project">
-                <div class="pin-info"><div class="pin-title">New Inspiration</div></div>
-            </div>
-
-            <div class="pin-card">
-                <img src="https://picsum.photos/300/450?random=5" alt="ACH Project">
-                <div class="pin-info"><div class="pin-title">ACH Digital Art</div></div>
-            </div>
-
-            <div class="pin-card">
-                <img src="https://picsum.photos/300/350?random=6" alt="ACH Project">
-                <div class="pin-info"><div class="pin-title">Modern Concepts</div></div>
-            </div>
-
-            <div class="pin-card">
-                <img src="https://picsum.photos/300/550?random=7" alt="ACH Project">
-                <div class="pin-info"><div class="pin-title">ACH Production</div></div>
-            </div>
-
-            <div class="pin-card">
-                <img src="https://picsum.photos/300/280?random=8" alt="ACH Project">
-                <div class="pin-info"><div class="pin-title">Setup Exploration</div></div>
-            </div>
-
-        </div>
+    <main class="grid-container">
+        <!-- كاردات كبار بحال ديال موقع سبيس اكس -->
+        <a href="#" class="card"><h2>Falcon 9 Mission</h2></a>
+        <a href="#" class="card"><h2>Starship Development</h2></a>
+        <a href="#" class="card"><h2>Human Spaceflight</h2></a>
+        <a href="#" class="card"><h2>Future Projects</h2></a>
     </main>
 
 </body>
