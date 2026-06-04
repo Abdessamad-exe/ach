@@ -88,13 +88,22 @@
 </head>
 <body>
 
-    <nav class="navbar">
-       <a href="https://abdessamad-exe.github.io/ach" class="logo-link"></a>
-        <div class="nav-links">
-            <a href="#">Projects</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </div>
+   <nav class="navbar">
+    <a href="https://abdessamad-exe.github.io/ach" class="logo-link"></a>
+    
+    <div class="menu-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+<div id="sidePanel" class="side-panel">
+    <a href="javascript:void(0)" class="close-btn" onclick="toggleMenu()">&times;</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</div>
     </nav>
 
     <main class="grid-container">
